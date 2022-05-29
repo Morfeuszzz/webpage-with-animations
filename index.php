@@ -268,9 +268,9 @@ CONTENT;
             <div id="address" class="contact-tiles">Nasz adres: Zmyślona 44, 61-834 Poznań</div>
         </div>
     </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d608.4754754483922!2d16.933758406092707!3d52.40845409421937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045bb29ba4727d%3A0x6debfca6aaeccb8b!2sRatusz!5e0!3m2!1spl!2spl!4v1648902421713!5m2!1spl!2spl" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d608.4754754483922!2d16.933758406092707!3d52.40845409421937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045bb29ba4727d%3A0x6debfca6aaeccb8b!2sRatusz!5e0!3m2!1spl!2spl!4v1648902421713!5m2!1spl!2spl" title="map with the address marked" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-    <footer>&copy 2022 Copyright: Sebastian Malicki</footer>
+    <footer>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Sebastian Malicki</footer>
     <script src="./scripts.js"></script>
 </body>
 </html>
