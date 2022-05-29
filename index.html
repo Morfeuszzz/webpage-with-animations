@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="./style.css">
     <title>Kawiarnia</title>
 </head>
+
 <body>
     <header>
         <div id="logo">
@@ -31,33 +33,20 @@
                 <input type="radio" name="radio-btn" id="radio3" onclick="manualChange(3)">
                 <input type="radio" name="radio-btn" id="radio4" onclick="manualChange(4)">
                 <!-- slide images -->
-                <?php
-                    $connect = new mysqli("localhost","root","","kawiarnia");
-                    $sql = "SELECT id, name, alt FROM slider;";
-                    $result = $connect->query($sql);
-                    $name = [];
-                    $alt = [];
-                    while ($row = $result->fetch_assoc()){
-                        $i = (int)$row['id'] - 1;
-                        $name[$i] = $row['name'];
-                        $alt[$i] = $row['alt'];
-                    }
-                    echo<<<SLIDES
-                        <div class="slide first">
-                            <img src="./images/slider/$name[0].jpg" alt="$alt[0]">
-                        </div>
-                        <div class="slide">
-                            <img src="./images/slider/$name[1].jpg" alt="$alt[1]">
-                        </div>
-                        <div class="slide">
-                            <img src="./images/slider/$name[2].jpg" alt="$alt[2]">
-                        </div>
-                        <div class="slide">
-                            <img src="./images/slider/$name[3].jpg" alt="$alt[3]">
-                        </div>
-SLIDES;
-                    $connect->close();
-                ?>
+
+                <div class="slide first">
+                    <img src="./images/slider/slide1.jpg" alt="coffee">
+                </div>
+                <div class="slide">
+                    <img src="./images/slider/slide2.jpg" alt="coffee2">
+                </div>
+                <div class="slide">
+                    <img src="./images/slider/slide3.jpg" alt="muffins">
+                </div>
+                <div class="slide">
+                    <img src="./images/slider/slide4.jpg" alt="cappuccino">
+                </div>
+
                 <div class="navigation-auto">
                     <div class="auto-btn1"></div>
                     <div class="auto-btn2"></div>
@@ -78,18 +67,19 @@ SLIDES;
     <div class="backgroundAbout">
         <div id="about-us-content" class="reveal">
             <div id="figure">
-                <?php
-                    $connect = new mysqli("localhost","root","","kawiarnia");
-                    $sql = "SELECT id, name, alt FROM aboutus;";
-                    $result = $connect->query($sql);
-                    $row = $result->fetch_assoc();
-                    echo "<img src='./images/$row[name].png' alt='$row[alt]'>";
-                    $connect->close();
-                ?>
+                <img src="./images/inside.png" alt="the interior of our place">
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate magna a risus malesuada tincidunt. Ut non turpis sapien. Maecenas mattis ultrices sem ac  pharetra. Morbi ut imperdiet lorem. Quisque sapien enim, convallis quis ipsum vel, laoreet posuere dui. Praesent pulvinar lectus et dolor fermentum pulvinar. Cras dignissim risus sed vulputate rutrum. Aliquam sed enim nec ante vehicula sollicitudin nec facilisis elit.<br><br>
-            Duis in velit scelerisque, interdum turpis eleifend, sagittis lectus. Nullam nec faucibus orci, quis lacinia tortor. Duis nulla ipsum, tempor id massa at, ornare mattis nibh. Sed tempus sem vel velit molestie rhoncus. Donec vitae turpis lectus. Aenean ac varius elit. Aenean vel euismod nisl. Curabitur a mattis libero.<br><br>
-            Suspendisse congue, est ac sagittis tempor, neque nunc dignissim nulla, ut finibus odio nisl eget massa. &#128151;&#128513;</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate magna a risus malesuada tincidunt.
+                Ut non turpis sapien. Maecenas mattis ultrices sem ac pharetra. Morbi ut imperdiet lorem. Quisque sapien
+                enim, convallis quis ipsum vel, laoreet posuere dui. Praesent pulvinar lectus et dolor fermentum
+                pulvinar. Cras dignissim risus sed vulputate rutrum. Aliquam sed enim nec ante vehicula sollicitudin nec
+                facilisis elit.<br><br>
+                Duis in velit scelerisque, interdum turpis eleifend, sagittis lectus. Nullam nec faucibus orci, quis
+                lacinia tortor. Duis nulla ipsum, tempor id massa at, ornare mattis nibh. Sed tempus sem vel velit
+                molestie rhoncus. Donec vitae turpis lectus. Aenean ac varius elit. Aenean vel euismod nisl. Curabitur a
+                mattis libero.<br><br>
+                Suspendisse congue, est ac sagittis tempor, neque nunc dignissim nulla, ut finibus odio nisl eget massa.
+                &#128151;&#128513;</p>
         </div>
     </div>
 
@@ -194,66 +184,51 @@ SLIDES;
                 </div>
             </div>
             <div id="offer-special">-20% na wszystkie napoje z ważną legitymacją studencką</div>
-        </div> 
+        </div>
     </div>
 
     <h2 id="gallery">Galeria</h2>
     <div class="backgroundGallery">
         <div id="gallery-content" class="reveal">
-            <?php
-                $connect = new mysqli("localhost","root","","kawiarnia");
-                $sql = "SELECT id, name, alt FROM gallery;";
-                $result = $connect->query($sql);
-                $name = [];
-                $alt = [];
-                while ($row = $result->fetch_assoc()){
-                    $i = (int)$row['id'] - 1;
-                    $name[$i] = $row['name'];
-                    $alt[$i] = $row['alt'];
-                }
-                echo<<<CONTENT
-                    <div class="gallery-cell">
-                        <img src="./images/gallery/$name[0].jpg" alt="$alt[0]" class="gallery-cell-img">
-                        <div class="gallery-cell-text">Kwiaty</div>
-                    </div>
-                    <div class="gallery-cell">
-                        <img src="./images/gallery/$name[1].jpg" alt="$alt[1]" class="gallery-cell-img">
-                        <div class="gallery-cell-text">Kubek</div>
-                    </div>
-                    <div class="gallery-cell">
-                        <img src="./images/gallery/$name[2].jpg" alt="$alt[2]" class="gallery-cell-img">
-                        <div class="gallery-cell-text">Cappuccino</div>
-                    </div>
-                    <div class="gallery-cell">
-                        <img src="./images/gallery/$name[3].jpg" alt="$alt[3]" class="gallery-cell-img">
-                        <div class="gallery-cell-text">Środek</div>
-                    </div>
-                    <div class="gallery-cell">
-                        <img src="./images/gallery/$name[4].jpg" alt="$alt[4]" class="gallery-cell-img">
-                        <div class="gallery-cell-text">Menu</div>
-                    </div>
-                    <div class="gallery-cell">
-                        <img src="./images/gallery/$name[5].jpg" alt="$alt[5]" class="gallery-cell-img">
-                        <div class="gallery-cell-text">Dodatki</div>
-                    </div>
-                    <div class="gallery-cell">
-                        <img src="./images/gallery/$name[6].jpg" alt="$alt[6]" class="gallery-cell-img">
-                        <div class="gallery-cell-text">Macchiato</div>
-                    </div>
-                    <div class="gallery-cell">
-                        <img src="./images/gallery/$name[7].jpg" alt="$alt[7]" class="gallery-cell-img">
-                        <div class="gallery-cell-text">Latte</div>
-                    </div>
-CONTENT;
-                $connect->close();
-            ?>
+            <div class="gallery-cell">
+                <img src="./images/gallery/gallery1.jpg" alt="coffee with roses" class="gallery-cell-img">
+                <div class="gallery-cell-text">Kwiaty</div>
+            </div>
+            <div class="gallery-cell">
+                <img src="./images/gallery/gallery2.jpg" alt="coffee on table" class="gallery-cell-img">
+                <div class="gallery-cell-text">Kubek</div>
+            </div>
+            <div class="gallery-cell">
+                <img src="./images/gallery/gallery3.jpg" alt="heart in coffee" class="gallery-cell-img">
+                <div class="gallery-cell-text">Cappuccino</div>
+            </div>
+            <div class="gallery-cell">
+                <img src="./images/gallery/gallery4.jpg" alt="table with chairs" class="gallery-cell-img">
+                <div class="gallery-cell-text">Środek</div>
+            </div>
+            <div class="gallery-cell">
+                <img src="./images/gallery/gallery5.jpg" alt="our menu table" class="gallery-cell-img">
+                <div class="gallery-cell-text">Menu</div>
+            </div>
+            <div class="gallery-cell">
+                <img src="./images/gallery/gallery6.jpg" alt="some pocket sugar" class="gallery-cell-img">
+                <div class="gallery-cell-text">Dodatki</div>
+            </div>
+            <div class="gallery-cell">
+                <img src="./images/gallery/gallery7.jpg" alt="cup of coffee" class="gallery-cell-img">
+                <div class="gallery-cell-text">Macchiato</div>
+            </div>
+            <div class="gallery-cell">
+                <img src="./images/gallery/gallery8.jpg" alt="cup of coffee from above" class="gallery-cell-img">
+                <div class="gallery-cell-text">Latte</div>
+            </div>
         </div>
     </div>
-            
+
     <h2 id="contact-us">Kontakt do nas</h2>
     <div class="backgroundContact">
         <div id="contact-content" class="reveal">
-            <div id="phone-nr" class="contact-tiles">Numer kontaktowy: +48 444 444 444</div>
+            <div id="phone-nr" class="contact-tiles">Numer kontaktowy: <a href="tel:+48444444444">+48 444 444 444</a></div>
             <div id="email" class="contact-tiles">Email kontaktowy: <a href="mailto:kawiarnia@gmail.com">kawiarnia@gmail.com</a></div>
             <div id="opening-hours" class="contact-tiles">
                 Godziny otwarcia:<br><br>
@@ -268,9 +243,13 @@ CONTENT;
             <div id="address" class="contact-tiles">Nasz adres: Zmyślona 44, 61-834 Poznań</div>
         </div>
     </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d608.4754754483922!2d16.933758406092707!3d52.40845409421937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045bb29ba4727d%3A0x6debfca6aaeccb8b!2sRatusz!5e0!3m2!1spl!2spl!4v1648902421713!5m2!1spl!2spl" title="map with the address marked" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d608.4754754483922!2d16.933758406092707!3d52.40845409421937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045bb29ba4727d%3A0x6debfca6aaeccb8b!2sRatusz!5e0!3m2!1spl!2spl!4v1648902421713!5m2!1spl!2spl"
+        title="map with the address marked" width="100%" height="400" style="border:0;" allowfullscreen=""
+        loading="lazy"></iframe>
 
     <footer>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Sebastian Malicki</footer>
     <script src="./scripts.js"></script>
 </body>
+
 </html>
